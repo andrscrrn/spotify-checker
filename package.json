@@ -4,6 +4,10 @@
   "description": "A Node.js utility to help you clean up your local music library by checking which artists are available on Spotify",
   "main": "index.js",
   "type": "module",
+  "funding": {
+    "type": "paypal",
+    "url": "https://www.paypal.me/andrscrrn"
+  },
   "bin": {
     "spotify-library-checker": "./index.js",
     "spotify-library-checker-delete": "./spotify-checker-delete.js",

@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/spotify-library-checker.svg)](https://www.npmjs.com/package/spotify-library-checker)
 [![npm downloads](https://img.shields.io/npm/dm/spotify-library-checker.svg)](https://www.npmjs.com/package/spotify-library-checker)
 [![License](https://img.shields.io/npm/l/spotify-library-checker.svg)](https://github.com/andrscrrn/spotify-library-checker/blob/main/LICENSE)
+[![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/andrscrrn)
 
 A Node.js utility to help you clean up your local music library by checking which artists are available on Spotify. The tool scans your local music directory, matches artist names with Spotify's database, and helps you identify which folders you can safely delete if you're transitioning to Spotify streaming.
 

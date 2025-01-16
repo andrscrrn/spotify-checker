@@ -3,17 +3,14 @@
 import { promises as fs } from "fs";
 import path from "path";
 import SpotifyWebApi from "spotify-web-api-node";
-import * as dotenv from "dotenv";
-
-// Load environment variables
-dotenv.config();
+import { getConfig, configExists } from "./config.js";
 
 // Get music directory from command line arguments
 const musicDir = process.argv[2];
 
 if (!musicDir) {
   console.error("Please provide the music directory path as an argument.");
-  console.error("Usage: node index.js /path/to/music/directory");
+  console.error("Usage: spotify-library-checker /path/to/music/directory");
   process.exit(1);
 }
 
@@ -29,10 +26,27 @@ try {
   process.exit(1);
 }
 
+// Check if configuration exists
+if (!(await configExists())) {
+  console.error(
+    "Configuration not found. Please run 'spotify-library-checker-configure' first."
+  );
+  process.exit(1);
+}
+
+// Get configuration
+const config = await getConfig();
+if (!config) {
+  console.error(
+    "Error reading configuration. Please run 'spotify-library-checker-configure' again."
+  );
+  process.exit(1);
+}
+
 // Spotify API credentials
 const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.SPOTIFY_CLIENT_ID,
-  clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+  clientId: config.clientId,
+  clientSecret: config.clientSecret,
 });
 
 // Calculate similarity between two strings

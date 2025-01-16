@@ -17,7 +17,7 @@ A Node.js utility to help you clean up your local music library by checking whic
 ## Prerequisites
 
 - Node.js (v16 or higher)
-- A Spotify Developer account and API credentials
+- A Spotify Developer account
 
 ## Installation
 
@@ -30,23 +30,27 @@ npm install -g spotify-library-checker
 Or run it directly using npx:
 
 ```bash
-npx spotify-checker
+npx spotify-library-checker-configure
+npx spotify-library-checker "/path/to/your/music"
 ```
 
-## Setup
+## Configuration
 
-1. Create a `.env` file in your current directory with your Spotify API credentials:
+Before using the tool, you need to configure your Spotify API credentials:
 
-   ```
-   SPOTIFY_CLIENT_ID=your_client_id
-   SPOTIFY_CLIENT_SECRET=your_client_secret
-   ```
-
-   To get these credentials:
+1. Get your Spotify API credentials:
 
    1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
    2. Create a new application
    3. Copy the Client ID and Client Secret
+
+2. Run the configuration command:
+
+   ```bash
+   spotify-library-checker-configure
+   ```
+
+   This will prompt you for your Spotify credentials and save them securely in `~/.spotify-library-checker/config.json`.
 
 ## Usage
 
@@ -55,13 +59,7 @@ npx spotify-checker
 Run the command with your music directory path as an argument:
 
 ```bash
-spotify-checker "/path/to/your/music/directory"
-```
-
-Or if using npx:
-
-```bash
-npx spotify-checker "/path/to/your/music/directory"
+spotify-library-checker "/path/to/your/music/directory"
 ```
 
 This will:
@@ -77,13 +75,7 @@ This will:
 If you want to delete the folders that have matches on Spotify:
 
 ```bash
-spotify-checker-delete
-```
-
-Or if using npx:
-
-```bash
-npx spotify-checker-delete
+spotify-library-checker-delete
 ```
 
 This script will:
@@ -114,6 +106,7 @@ This script will:
 - Error handling and logging
 - Directory existence validation
 - Directory path validation
+- Secure credential storage in user's home directory
 
 ## Contributing
 

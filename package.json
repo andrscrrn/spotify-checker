@@ -9,9 +9,9 @@
     "url": "https://www.paypal.me/andrscrrn"
   },
   "bin": {
-    "spotify-library-checker": "./index.js",
-    "spotify-library-checker-delete": "./spotify-checker-delete.js",
-    "spotify-library-checker-configure": "./configure.js"
+    "spotify-library-checker": "index.js",
+    "spotify-library-checker-delete": "spotify-checker-delete.js",
+    "spotify-library-checker-configure": "configure.js"
   },
   "scripts": {
     "start": "node index.js"

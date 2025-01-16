@@ -44,22 +44,29 @@ A Node.js utility to help you clean up your local music library by checking whic
    2. Create a new application
    3. Copy the Client ID and Client Secret
 
-4. Modify the `musicDir` path in `index.js` to point to your music directory.
-
 ## Usage
 
 ### 1. Check Artists Against Spotify
 
-Run the main script to scan your music directory and check artists against Spotify:
+Run the main script with your music directory path as an argument:
 
 ```bash
-node index.js
+node index.js "/path/to/your/music/directory"
 ```
 
-This will generate two files:
+For example:
 
-- `spotify_matches.txt`: Lists folders with matching artists on Spotify
-- `no_matches.txt`: Lists folders with no matches on Spotify
+```bash
+node index.js "/Users/username/Music/Local Music"
+```
+
+This will:
+
+1. Scan all artist folders in the specified directory
+2. Check each artist name against Spotify's database
+3. Generate two files:
+   - `spotify_matches.txt`: Lists folders with matching artists on Spotify
+   - `no_matches.txt`: Lists folders with no matches on Spotify
 
 ### 2. Delete Matched Folders (Optional)
 
@@ -95,6 +102,8 @@ This script will:
 - Confirmation prompt before each folder deletion
 - Full paths in log files for transparency
 - Error handling and logging
+- Directory existence validation
+- Directory path validation
 
 ## Contributing
 

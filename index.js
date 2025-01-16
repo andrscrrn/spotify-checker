@@ -6,6 +6,27 @@ import * as dotenv from "dotenv";
 // Load environment variables
 dotenv.config();
 
+// Get music directory from command line arguments
+const musicDir = process.argv[2];
+
+if (!musicDir) {
+  console.error("Please provide the music directory path as an argument.");
+  console.error("Usage: node index.js /path/to/music/directory");
+  process.exit(1);
+}
+
+// Verify the directory exists
+try {
+  const stats = await fs.stat(musicDir);
+  if (!stats.isDirectory()) {
+    console.error("The provided path is not a directory.");
+    process.exit(1);
+  }
+} catch (error) {
+  console.error("The provided directory does not exist.");
+  process.exit(1);
+}
+
 // Spotify API credentials
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.SPOTIFY_CLIENT_ID,
@@ -74,9 +95,6 @@ async function main() {
     // First, get Spotify access token
     const data = await spotifyApi.clientCredentialsGrant();
     spotifyApi.setAccessToken(data.body.access_token);
-
-    // Directory containing music files
-    const musicDir = "/Users/andrscrrn/Music/Old Music Pending";
 
     // Get all first-level directories
     console.log("Scanning music directory for artists...");

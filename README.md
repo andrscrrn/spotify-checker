@@ -1,5 +1,9 @@
 # Spotify Music Library Checker
 
+[![npm version](https://img.shields.io/npm/v/spotify-library-checker.svg)](https://www.npmjs.com/package/spotify-library-checker)
+[![npm downloads](https://img.shields.io/npm/dm/spotify-library-checker.svg)](https://www.npmjs.com/package/spotify-library-checker)
+[![License](https://img.shields.io/npm/l/spotify-library-checker.svg)](https://github.com/andrscrrn/spotify-library-checker/blob/main/LICENSE)
+
 A Node.js utility to help you clean up your local music library by checking which artists are available on Spotify. The tool scans your local music directory, matches artist names with Spotify's database, and helps you identify which folders you can safely delete if you're transitioning to Spotify streaming.
 
 ## Features
@@ -13,25 +17,25 @@ A Node.js utility to help you clean up your local music library by checking whic
 ## Prerequisites
 
 - Node.js (v16 or higher)
-- npm
 - A Spotify Developer account and API credentials
+
+## Installation
+
+You can install this tool globally using npm:
+
+```bash
+npm install -g spotify-library-checker
+```
+
+Or run it directly using npx:
+
+```bash
+npx spotify-checker
+```
 
 ## Setup
 
-1. Clone the repository:
-
-   ```bash
-   git clone [repository-url]
-   cd spotify-checker
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Create a `.env` file in the root directory with your Spotify API credentials:
+1. Create a `.env` file in your current directory with your Spotify API credentials:
 
    ```
    SPOTIFY_CLIENT_ID=your_client_id
@@ -48,16 +52,16 @@ A Node.js utility to help you clean up your local music library by checking whic
 
 ### 1. Check Artists Against Spotify
 
-Run the main script with your music directory path as an argument:
+Run the command with your music directory path as an argument:
 
 ```bash
-node index.js "/path/to/your/music/directory"
+spotify-checker "/path/to/your/music/directory"
 ```
 
-For example:
+Or if using npx:
 
 ```bash
-node index.js "/Users/username/Music/Local Music"
+npx spotify-checker "/path/to/your/music/directory"
 ```
 
 This will:
@@ -73,7 +77,13 @@ This will:
 If you want to delete the folders that have matches on Spotify:
 
 ```bash
-node delete_matched_folders.js
+spotify-checker-delete
+```
+
+Or if using npx:
+
+```bash
+npx spotify-checker-delete
 ```
 
 This script will:

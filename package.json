@@ -1,14 +1,33 @@
 {
-  "name": "mkdir-spotify-checker",
+  "name": "spotify-library-checker",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Node.js utility to help you clean up your local music library by checking which artists are available on Spotify",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "spotify-checker": "./index.js"
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "spotify",
+    "music",
+    "library",
+    "cleanup",
+    "filesystem",
+    "utility",
+    "cli"
+  ],
+  "author": "andrscrrn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrscrrn/spotify-library-checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andrscrrn/spotify-library-checker/issues"
+  },
+  "homepage": "https://github.com/andrscrrn/spotify-library-checker#readme",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",

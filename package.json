@@ -1,6 +1,6 @@
 {
   "name": "spotify-library-checker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Node.js utility to help you clean up your local music library by checking which artists are available on Spotify",
   "main": "index.js",
   "type": "module",

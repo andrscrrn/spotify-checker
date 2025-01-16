@@ -1,0 +1,11 @@
+# Environment variables
+.env
+
+# Node
+node_modules/
+
+# Logs
+*.log
+spotify_matches.txt
+no_matches.txt
+errors.txt 
